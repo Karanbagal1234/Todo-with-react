@@ -1,0 +1,22 @@
+
+.Toastify__toast{
+    margin: 0;
+    height: 55px;
+}
+div.Toastify__toast-body > div:nth-child(2){
+    font-size: 1.25vw;
+}
+@media only screen and (max-width: 480px){
+.Toastify__toast-container {
+    width: 70vw;
+}
+div.Toastify__toast-body > div:nth-child(2){
+    font-size: 3.5vw;
+}
+}
+.click>.a{
+    text-decoration:
+    line-through #064635 2px;
+ 
+ opacity: 0.4;
+}

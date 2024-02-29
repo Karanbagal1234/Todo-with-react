@@ -1,0 +1,39 @@
+.inputs{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    height: 5vh;
+    margin: 5vw 0;
+}
+.input{
+    width: 33vw;
+    height: 10vh;
+    font-size: 31px;
+    border: none;
+    border-bottom: 2px solid aqua;
+outline: none;
+background-color: transparent;
+}
+input:nth-child(2){
+    font-size: 17px;
+}
+#root > hr{
+background-color: transparent;
+box-shadow: 0px 3px 5px black;
+}/* Center placeholder text */
+input::placeholder {
+    text-align: center;
+}
+.flex>p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 25vw;
+}
+h1.text-lg.a{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 18vw;
+}
