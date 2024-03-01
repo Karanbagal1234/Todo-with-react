@@ -16,7 +16,7 @@ div.Toastify__toast-body > div:nth-child(2){
 }
 .click>.a{
     text-decoration:
-    line-through #064635 2px;
+    line-through red ;
  
  opacity: 0.4;
 }

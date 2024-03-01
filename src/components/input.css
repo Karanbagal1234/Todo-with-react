@@ -1,19 +1,26 @@
 .inputs{
-    display: flex;
+    display: grid;
     justify-content: space-evenly;
     align-items: center;
     width: 100vw;
-    height: 5vh;
+    height: auto;
     margin: 5vw 0;
+    grid-template-columns: repeat(2,1fr) 100px;
+    gap: 66px;
+    
+}
+.rid-i{
+    width: 7.1vw;
 }
 .input{
-    width: 33vw;
+    width: 100%;
     height: 10vh;
     font-size: 31px;
     border: none;
     border-bottom: 2px solid aqua;
 outline: none;
 background-color: transparent;
+
 }
 input:nth-child(2){
     font-size: 17px;
@@ -24,6 +31,7 @@ box-shadow: 0px 3px 5px black;
 }/* Center placeholder text */
 input::placeholder {
     text-align: center;
+
 }
 .flex>p {
     white-space: nowrap;
@@ -36,4 +44,26 @@ h1.text-lg.a{
     overflow: hidden;
     text-overflow: ellipsis;
     width: 18vw;
+}
+
+.flex>p,div.flex > div.flex > h1 {
+    font-size: 4vw;
+    color: black;
+}
+.rid-c{
+place-items: center;
+}
+
+@media (max-width:500px){
+    .rid-c{
+        grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    place-items: center;
+    }
+.rid-i{
+    grid-column: span 2;
+    width: 16.1vw;
+      text-align: start;
+}
+
 }

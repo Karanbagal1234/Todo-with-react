@@ -10,7 +10,7 @@ function Input() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [data, setData] = useState([]);
-
+const [trfal, settrfal] = useState(false)
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("task")) || [];
     setData(storedData);
@@ -41,7 +41,7 @@ function Input() {
       transition: Bounce,
     });
   };
-  const addTask = async () => {
+  const addTask = () => {
     if (!title.trim() && !desc.trim()) {
       toast.error("Title and Description are required!");
       return;
@@ -60,36 +60,59 @@ function Input() {
     const newTask = { title, desc };
     setData([...data, newTask]);
     localStorage.setItem("task", JSON.stringify([...data, newTask]));
-
+if(trfal){
+  toast.success("Task updated!", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    transition: Bounce,
+  });
+  settrfal(false)
+}else{
+  notify();
+}
     setTitle("");
     setDesc("");
-    notify();
   };
 
-  const deleteTask = (name) => {
-    const filteredData = data.filter((item) => item.title !== name);
+  const deleteTask = (...name) => {
+    const filteredData = data.filter((item) => item.title !== name[0]);
     setData(filteredData);
     localStorage.setItem("task", JSON.stringify([...filteredData]));
+    if(!name[1]){
     delet();
+    }
+  };
+  const update = (name) => {
+    setTitle(name.title)
+    setDesc(name.desc)
+
   };
   return (
     <>
-      <div className="inputs">
+      <div className="inputs rid-c">
         <input
-          type="text"
+        id="in1"
+        type="text"
           value={title}
           placeholder="Title"
-          onChange={(e) => setTitle(e.target.value)}
+          onInput={(e) => setTitle(e.target.value)}
           className="input"
         />
         <input
+        id="in2"
           type="text"
           value={desc}
           placeholder="Description"
           onChange={(e) => setDesc(e.target.value)}
           className="input"
         />
-        <button onClick={addTask}>ADD</button>
+        <button className="rid-i" onClick={addTask}>ADD</button>
       </div>
       <hr />
       <div className="allTasks">
@@ -122,7 +145,15 @@ function Input() {
                   {task.title}
                 </h1>
                 <p className="text-sm a text-gray-600">{task.desc}</p>
-
+                <button
+                  className="ml-4 bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600"
+                  onClick={() => {
+                    settrfal(true)
+                    update(task)
+                  deleteTask(task.title,true)}}
+                >
+                  Edit
+                </button>
                 <button
                   className="ml-4 bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
                   onClick={() => deleteTask(task.title)}
