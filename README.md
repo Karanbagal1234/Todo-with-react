@@ -6,6 +6,7 @@ This is a simple ToDo application built using React. It allows users to create, 
 
 - Add Task: Users can add new tasks to their list.
 - View Tasks: Users can see all their tasks in a list.
+- Update Task: Users can mark tasks as completed or update task details.
 - Delete Task: Users can delete tasks from the list.
 
 
@@ -14,8 +15,7 @@ This is a simple ToDo application built using React. It allows users to create, 
 - React: JavaScript library for building user interfaces.
 - HTML: Markup language for creating the structure of the application.
 - CSS: Styling language for designing the user interface.
-
-
+- Toastify: Library for adding toast notifications to the application.
 
 To run this application locally, follow these steps:
 
@@ -51,7 +51,7 @@ Start the server
 ## Usage
 
 - Adding a Task: Click the "ADD" button or input field to add a new task.
-
+- Updating a Task: Click on a task to edit its details or mark it as completed.
 - Deleting a Task: Click on the delete button next to a task to remove it from the list.
 ## Contributing
 
